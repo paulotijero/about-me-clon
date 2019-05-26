@@ -30,10 +30,19 @@ body {
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 .info {
   padding: 30px;
+}
+
+.photo .name {
+  display: none;
+}
+
+.info .name {
+  display: block;
 }
 
 .name {
@@ -88,4 +97,38 @@ body {
 .container div {
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    grid-template: 400px / 1fr;
+    grid-template-areas:
+      "photo"
+      "info";
+  }
+
+  .info .name {
+    display: none;
+  }
+
+  .photo .name {
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .photo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .photo div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 15px;
+    color: #fff;
+    z-index: 2;
+  }
 }
